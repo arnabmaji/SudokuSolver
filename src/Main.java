@@ -1,23 +1,21 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[][] sudokuGrid = {
-                {0,0,6,0,3,1,0,7,0},
-                {4,3,7,0,0,5,0,0,0},
-                {0,1,0,4,6,7,0,0,8},
-                {0,2,9,1,7,8,3,0,0},
-                {0,0,0,0,0,0,0,2,6},
-                {3,0,0,0,5,0,0,0,0},
-                {8,0,5,0,0,4,9,1,0},
-                {0,0,3,5,0,9,0,8,7},
-                {7,9,0,0,8,6,0,0,4}
-        };
+
+        Scanner scanner = new Scanner(System.in);
+        int[][] sudokuGrid = new int[8][8];
+        for(int i = 0; i<8;i++){
+            for(int j = 0;j<8;j++){
+                sudokuGrid[i][j] = scanner.nextInt();
+            }
+            System.out.println();
+        }
 
         SudokuSolver sudokuSolver = new SudokuSolver(sudokuGrid);
         sudokuSolver.solveSudoku();
-        for(int i = 0; i<9;i++){
-            for(int j = 0;j<9;j++){
+        for(int i = 0; i<8;i++){
+            for(int j = 0;j<8;j++){
                 System.out.print(sudokuGrid[i][j]+" ");
             }
             System.out.println();
