@@ -30,6 +30,8 @@ public class SudokuSolver {
             maxGridHeight = 2;
             maxGridWidth = 3;
             maxDigit = 6;
+        } else {
+            throw new SudokuFormatException("Invalid Sudoku Format");
         }
     }
 
@@ -41,13 +43,13 @@ public class SudokuSolver {
 
     private void crossHatch(){
         while(vacantSpaces > 0){
-            int previusVacantSpaces = vacantSpaces;
+            int previousVacantSpaces = vacantSpaces;
             for(int i=0;i<length;i+= maxGridHeight){
                 for (int j=0;j<length;j+= maxGridWidth) {
                     analyzeNonet(new Position(i,j));
                 }
             }
-            if(previusVacantSpaces == vacantSpaces){
+            if(previousVacantSpaces == vacantSpaces){
                 System.out.println("Probably it doesn't have any solution!");
                 break;
             }
